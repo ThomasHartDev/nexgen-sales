@@ -11,7 +11,7 @@
 
       <div class="blog-cards">
         <div
-          v-for="(blog, index) in blogs.slice(0, 3)"
+          v-for="(blog, index) in (blogs ?? []).slice(0, 3)"
           :key="index"
           class="blog-card"
         >
