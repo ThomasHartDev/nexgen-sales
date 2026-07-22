@@ -1,88 +1,61 @@
 # NexGen Sales
 
-**Live site:** https://nexgen-sales.vercel.app/
+A recruiting site and training portal for a direct-sales organization. The public side advertises the opportunity and takes applications. Behind a login, reps work through courses, video trainings, and quizzes, and admins manage the whole thing.
+
+**Live site:** https://recruit-gamma.vercel.app/
 
 ## Overview
 
-NexGen Sales is the public homepage and recruitment portal for a door‑to‑door sales organization. The site advertises sales opportunities, features a blog page for company news and updates, provides a secure application form for candidates, and includes a locked‑down client portal with courses, video trainings, and quizzes to screen and onboard sales reps. It also offers several administrative dashboards for editing all database information, managing user profiles, and handling a support ticket system.
+NexGen Sales is a Nuxt 3 app with server-side rendering. The front of the site is a marketing homepage, a blog, and an application form for candidates. Accepted reps get a portal with structured courses, trainings, and quizzes for onboarding. There is also a small product/checkout flow and a set of admin dashboards for editing every record in the system.
 
-## Tech Stack
+## Features
 
-- **Frontend:** Nuxt 3 (Vue 3 with SSR), Pinia  
-- **Backend & API:** Node.js, Nuxt Server Routes, Mongoose, MongoDB Atlas  
-- **Storage:** AWS S3 via `@aws-sdk/client-s3`  
-- **Authentication & Security:** Google OAuth, JWT, bcrypt, reCAPTCHA v3  
-- **DevOps & Deployment:** Vercel (CI/CD), GitHub  
+- Marketing homepage and blog for a sales recruiting org
+- Candidate application form with validation and reCAPTCHA
+- Gated rep portal: courses, video trainings, and quizzes
+- Product listing, cart, checkout, and order confirmation
+- Square payment integration
+- AWS S3 for image and asset hosting, AWS Lambda for transactional email
+- Google sign-in plus JWT sessions, passwords hashed with bcrypt
+- Support ticket handling
+- Admin dashboards to edit users, blog posts, courses, trainings, bundles, and affiliates
+- Auto-deploy on push to `main`
 
-## Key Features
+## Stack
 
-- Marketing homepage for recruiting door‑to‑door sales reps  
-- Blog page for company news, tips, and updates  
-- Secure application form with validation and anti‑spam  
-- Client portal with courses, video trainings, and quizzes  
-- AWS S3 integration for hosting images and assets
-- AWS Lambda functions for sending emails and other operations
-- Google OAuth for user signup/login  
-- JWT‑secured API routes and session management  
-- reCAPTCHA v3 integration to block spam  
-- Multiple admin dashboards to:
-    - Edit all database records  
-    - Manage user profiles  
-    - Handle support tickets  
-- Automatic deployment on push to `main`  
+- Nuxt 3 (Vue 3, SSR), Pinia for state
+- Nuxt server routes for the API
+- MongoDB Atlas via Mongoose
+- AWS S3 (`@aws-sdk/client-s3`) and AWS Lambda
+- Square SDK for payments
+- Google OAuth, `jsonwebtoken`, `bcrypt`, reCAPTCHA v3
+- Deployed on Vercel
 
-## Getting Started
+## Getting started
 
-### Prerequisites
+```bash
+npm install
+npm run dev
+```
 
-- Node.js v16 or higher  
-- npm, yarn, or pnpm  
-- AWS account with S3 bucket  
-- MongoDB Atlas account  
-- Google OAuth credentials  
+Set the environment variables:
 
-### Installation
+```
+NUXT_AWS_ACCESS_KEY=your_aws_access_key
+NUXT_AWS_SECRET_KEY=your_aws_secret_key
+NUXT_AWS_REGION=your_aws_region
+NUXT_S3_BUCKET=your_s3_bucket_name
+DB_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
+GOOGLE_CLIENT_ID=your_google_oauth_client_id
+GOOGLE_CLIENT_SECRET=your_google_oauth_client_secret
+```
 
-    git clone https://github.com/hartecho/nexgen-sales.git
-    cd nexgen-sales
-    npm install
+Build and run production:
 
-### Configuration
+```bash
+npm run build
+npm run start
+```
 
-    NUXT_AWS_ACCESS_KEY=YOUR_AWS_ACCESS_KEY
-    NUXT_AWS_SECRET_KEY=YOUR_AWS_SECRET_KEY
-    NUXT_AWS_REGION=YOUR_AWS_REGION
-    NUXT_S3_BUCKET=YOUR_S3_BUCKET_NAME
-
-    DB_URI=YOUR_MONGODB_CONNECTION_STRING
-
-    JWT_SECRET=YOUR_JWT_SECRET
-    GOOGLE_CLIENT_ID=YOUR_GOOGLE_CLIENT_ID
-    GOOGLE_CLIENT_SECRET=YOUR_GOOGLE_CLIENT_SECRET
-
-### Running Locally
-
-    npm run dev
-
-### Build & Production
-
-    npm run build
-    npm run start
-
-## Demo Login
-
-- **Email:** test@gmail.com  
-- **Password:** test  
-
-## Deployment
-
-This repository is connected to Vercel. Pushes to the `main` branch auto‑deploy to https://nexgen-sales.vercel.app/
-
-## License
-
-© 2025 HARTECHO LLC. All rights reserved.
-
-## Contact
-
-Thomas Hart  
-Email: thomas@hartecho.com  
+Built by HARTECHO.
